@@ -7,13 +7,11 @@ import GraphTest from "./components/graphCanva";
 
 const Results = () => {
     return (
-        <div className="flex flex-row bg-white w-screen h-screen ">
-            <div className="flex basis-1/3 p-10 h-fit">
+        <div className="flex flex-col justify-center items-center bg-white h-screen w-screen">
+            <div className="flex p-10 h-fit">
                 <DataTable />
             </div>
-            <div className="flex basis-2/3 p-10 h-fit">
-                <GraphTest data={state.data}/>
-            </div>
+            <GraphTest data={state.data}/>
         </div>
     );
     }

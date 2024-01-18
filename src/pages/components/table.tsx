@@ -16,6 +16,7 @@ const DataTable = () => {
           <th className="border-b border-r p-2 text-center">Question</th>
           <th className="border-b border-r p-2 text-center">Information</th>
           <th className="border-b border-r p-2 text-center">P.M</th>
+          <th className="border-b border-r p-2 text-center">Couleur</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,8 @@ const DataTable = () => {
             <td className="border-b p-2 border-r text-center">{item.question}</td>
             <td className="border-b p-2 border-r text-center">{item.x}</td>
             <td className="border-b p-2 border-r text-center">{item.y}</td>
+            <td className={`border-b p-2 border-r text-center`} style={{ backgroundColor: item.color }}>
+            </td>
           </tr>
         ))}
       </tbody>
