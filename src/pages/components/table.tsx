@@ -1,7 +1,7 @@
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 import { useSnapshot } from 'valtio';
-import { state } from '../lib/state';
+import  state  from '../../lib/state';
 
 const DataTable = () => {
   const allowedValues = ['0', '1a', '1b', '2a', '2b', '3a', '3b', '3c', '3d', '3e', '4a', '4b', '4c', '4d'];
@@ -20,7 +20,7 @@ const DataTable = () => {
         </tr>
       </thead>
       <tbody>
-        {data.map((item : any, index) => (
+        {data.map((item : any, index: number) => (
           item.x  && item.y  &&
           <tr key={index} className="text-black">
             <td className="border-b p-2 border-r text-center">{item.question}</td>

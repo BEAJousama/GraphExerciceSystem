@@ -1,15 +1,12 @@
 "use client";
 import { useRef, useState } from 'react';
-import Graph from './components/graph';
 import { HexColorPicker } from "react-colorful";
-import GridGraph from './components/gridgraph';
-import Yaxis from './components/yaxis';
 import BarChart from './components/graphCanva';
 import GraphTest from './components/graphCanva';
 import DataTable from './components/table';
 import React from 'react';
 import { useSnapshot } from 'valtio';
-import { state } from './lib/state';
+import  state  from '../lib/state';
 import Table from './components/table';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -32,11 +29,11 @@ const GraphPage = () => {
   };
 
   const handleNext = () => {
-    const xValues = state.x.split(',').map(item => item.trim());
-    const yValues = state.y.split(',').map(item => item.trim());
+    const xValues = state.x.split(',').map((item : any) => item.trim());
+    const yValues = state.y.split(',').map((item : any) => item.trim());
 
-    const isValidX = xValues.every(item => allowedValues.includes(item));
-    const isValidY = yValues.every(item => allowedValues.includes(item));
+    const isValidX = xValues.every((item : any) => allowedValues.includes(item));
+    const isValidY = yValues.every((item : any) => allowedValues.includes(item));
 
     if (!isValidX || !isValidY) {
       setValidationError(true);
@@ -44,16 +41,16 @@ const GraphPage = () => {
     }
 
     // sort xValues and get the greatest value
-    const xv = xValues.sort((a, b) => allowedValues.indexOf(b) - allowedValues.indexOf(a))[0];
+    const xv = xValues.sort((a: any, b: any) => allowedValues.indexOf(b) - allowedValues.indexOf(a))[0];
 
     // sort yValues and get the greatest value
-    const yv = yValues.sort((a, b) => allowedValues.indexOf(b) - allowedValues.indexOf(a))[0];
+    const yv = yValues.sort((a: any, b: any) => allowedValues.indexOf(b) - allowedValues.indexOf(a))[0];
 
     setValidationError(false);
     // index of x in allowedValues
-    const xIndex = xValues.map(item => allowedValues.indexOf(item));
+    const xIndex = xValues.map((item : any) => allowedValues.indexOf(item));
     // index of y in allowedValues
-    const yIndex = yValues.map(item => allowedValues.indexOf(item));
+    const yIndex = yValues.map((item : any) => allowedValues.indexOf(item));
     const color = state.color;
     state.index = state.index + 1;
     state.data = [...state.data, { x: xv, y: yv, color , xIndex, yIndex, question: `Question ${state.index}`}];
