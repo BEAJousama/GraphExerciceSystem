@@ -35,6 +35,7 @@ const state : any = proxy({
   color: "#555",
   validationError: false,
   question: "",
+  exercice: "",
 });
 
 export default state;

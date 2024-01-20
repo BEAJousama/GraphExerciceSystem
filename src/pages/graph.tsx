@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from 'react';
+import { use, useEffect, useRef, useState } from 'react';
 import { HexColorPicker } from "react-colorful";
 import BarChart from './components/graphCanva';
 import GraphTest from './components/graphCanva';
@@ -69,10 +69,19 @@ const GraphPage = () => {
     // ... other data objects ...
   ];
 
+  useEffect(() => {
+    state.data = [];
+    state.index = 0;
+    if (state.exercice === "") {
+      window.location.href = "/";
+    }
+
+  },[]);
+  
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-white">
       {validationError && <h1 className='text-red-500'>Veuillez entrer des valeurs valides</h1>}
-      <h1 className='text-3xl font-bold text-black pb-5'>Question {state.index} :</h1>
+      <h1 className='text-3xl font-bold text-black pb-5'>Question {state.index + 1} :</h1>
       <div className="w-full max-w-md flex flex-col items-center justify-center">
         <div className='flex flex-col'>
           <label className='text-gray-500' htmlFor="x">Valeurs de X:</label>
