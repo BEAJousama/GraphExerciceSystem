@@ -14,6 +14,7 @@ import Link from 'next/link';
 const GraphPage = () => {
   const [data, setData] = useState([{}]);
   const [validationError, setValidationError] = useState(false);
+  const router = useRouter();
 
 
   // use valtio to manage state
@@ -37,7 +38,7 @@ const GraphPage = () => {
 
     if (!isValidX || !isValidY) {
       setValidationError(true);
-      return;
+      return -1;
     }
 
     // sort xValues and get the greatest value
@@ -69,6 +70,14 @@ const GraphPage = () => {
     // ... other data objects ...
   ];
 
+  const handleClick = () => {
+    const val = handleNext();
+    if (val === -1) {
+      return;
+    }
+    router.push('/results');
+  }
+
   useEffect(() => {
     state.data = [];
     state.index = 0;
@@ -97,8 +106,8 @@ const GraphPage = () => {
         </div>
 
         <div className='flex gap-2 mt-3'>
-          <button className='bg-blue-900 w-fit p-2 rounded-md' onClick={handleNext}>Suivant</button>
-          <button className='bg-blue-900 w-fit p-2 rounded-md' onClick={handleNext}><Link href="/results">Terminer</Link></button>
+          <button className='bg-blue-500 hover:bg-blue-600 text-white w-fit p-2 rounded-md' onClick={handleNext}>Suivant</button>
+          <button className='bg-red-500 hover:bg-red-600 text-white w-fit p-2 rounded-md' onClick={handleClick}>Terminer</button>
         </div>
       </div>
     </div>

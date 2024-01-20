@@ -5,6 +5,7 @@ import DataTable from "./components/table";
 import GraphTest from "./components/graphCanva";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import Link from "next/link";
 
 const Results = () => {
   const [showTable, setShowTable] = React.useState(false);
@@ -62,7 +63,7 @@ const Results = () => {
                 className="text-white text-lg font-sans font-semibold rounded-xl bg-blue-400 hover:bg-blue-500 p-4"
                 onClick={downloadTableImage}
               >
-                Télécharger Image
+                Télécharger
               </button>
             </div>
           </div>
@@ -79,7 +80,7 @@ const Results = () => {
           className="text-white text-lg font-sans font-semibold rounded-xl bg-red-400 hover:bg-red-500 p-4"
           onClick={downloadGraphImage}
         >
-          Télécharger Image
+          Télécharger
         </button>
         <button
           className="text-white text-lg font-sans font-semibold rounded-xl bg-blue-400 hover:bg-blue-500 p-4"
@@ -88,6 +89,13 @@ const Results = () => {
           }}
         >
           Voir Tableau
+        </button>
+        <button
+          className="text-white text-lg font-sans font-semibold rounded-xl bg-green-400 hover:bg-green-500 p-4"
+        >
+          <Link href='/'>
+              Nouvel exercice
+          </Link>
         </button>
       </div>
     </div>

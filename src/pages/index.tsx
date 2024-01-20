@@ -22,6 +22,10 @@ export default function Home() {
   }, [])
 
   const handleClick = () => {
+    if (state.exercice === '') {
+      alert('Veuillez entrer un nom d\'exercice')
+      return;
+    }
     router.push('/graph')
   }
 
@@ -40,7 +44,7 @@ export default function Home() {
           <h1 className='text-xl md:text-5xl font-bold text-center text-black'>Bienvenue au <span className='text-blue-600'>G</span>raph <span className='text-blue-600'>E</span>xercise <span className='text-blue-600'>S</span>ystem</h1>
         </div>
         <div className='flex justify-center items-center gap-2 pt-11'>
-          <input className='border-2 border-blue-600 rounded-full py-2 px-4 text-gray-700 font-semibold ' type='text' placeholder="Nom d'exercice" value={state.exercice} onChange={handleChange} />
+          <input className='border-2 border-blue-600 rounded-full py-2 px-4 text-gray-700 font-semibold ' type='text' placeholder="Nom de l'exercice" value={state.exercice} onChange={handleChange} />
           <button className='bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full' onClick={handleClick}>
             Commancer
           </button>
